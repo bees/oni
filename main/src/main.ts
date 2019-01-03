@@ -309,18 +309,19 @@ app.on("activate", () => {
     }
 })
 
-i18n.on('loaded', (loaded) => {
-    i18n.changeLanguage('en')
-    i18n.off('loaded', () => { return })
-  });
+i18n.on("loaded", loaded => {
+    i18n.changeLanguage("en")
+    console.log("WOWkfdsjlkdsjfkdsj f1")
+    i18n.off("loaded", () => {
+        return
+    })
+})
 
-i18n.on('languageChanged', () => {
-    windows.forEach((window_) =>
-        updateMenu(window_, false)
-    )
-  });
+i18n.on("languageChanged", () => {
+    windows.forEach(window_ => updateMenu(window_, false))
+})
 
-function updateMenu(browserWindow, loadInit, ) {
+function updateMenu(browserWindow, loadInit) {
     const menu = buildMenu(browserWindow, loadInit, i18n)
     if (process.platform === "darwin") {
         // all osx windows share the same menu

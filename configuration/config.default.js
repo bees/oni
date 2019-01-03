@@ -38,7 +38,4 @@ module.exports = {
     // UI customizations
     "ui.animations.enabled": true,
     "ui.fontSmoothing": "auto",
-    languages: ["en"],
-    fallbackLng: "en",
-    namespace: "translation",
 }
