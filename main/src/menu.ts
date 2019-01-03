@@ -15,7 +15,7 @@ export const buildDockMenu = (mainWindow, loadInit) => {
     return Menu.buildFromTemplate(menu)
 }
 
-export const buildMenu = (mainWindow, loadInit) => {
+export const buildMenu = (mainWindow, loadInit, i18n) => {
     const menu = []
 
     // On Windows, both the forward slash `/` and the backward slash `\` are accepted as path delimiters.
@@ -63,7 +63,7 @@ export const buildMenu = (mainWindow, loadInit) => {
     const isWindows = os.platform() === "win32"
 
     const preferences = {
-        label: "Preferences",
+        label: i18n.t('Preferences'),
         submenu: [
             {
                 label: "Edit Oni config",

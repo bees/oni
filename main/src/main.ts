@@ -10,6 +10,8 @@ import { buildDockMenu, buildMenu } from "./menu"
 import { makeSingleInstance } from "./ProcessLifecycle"
 import { moveToNextOniInstance } from "./WindowManager"
 
+import i18n from "./localization/config"
+
 global["getLogs"] = Log.getAllLogs // tslint:disable-line no-string-literal
 
 const processArgs = process.argv || []
@@ -307,8 +309,19 @@ app.on("activate", () => {
     }
 })
 
-function updateMenu(browserWindow, loadInit) {
-    const menu = buildMenu(browserWindow, loadInit)
+i18n.on('loaded', (loaded) => {
+    i18n.changeLanguage('en')
+    i18n.off('loaded', () => { return })
+  });
+
+i18n.on('languageChanged', () => {
+    windows.forEach((window_) =>
+        updateMenu(window_, false)
+    )
+  });
+
+function updateMenu(browserWindow, loadInit, ) {
+    const menu = buildMenu(browserWindow, loadInit, i18n)
     if (process.platform === "darwin") {
         // all osx windows share the same menu
         Menu.setApplicationMenu(menu)
