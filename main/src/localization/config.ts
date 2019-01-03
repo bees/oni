@@ -9,7 +9,7 @@ const i18nextOptions = {
         default: ["en"],
     },
     languages: ["en"],
-    namespace: "translation",
+    defaultNS: "translation",
     saveMissing: true,
     backend: {
         loadPath: "./locales/{{lng}}/{{ns}}.json",

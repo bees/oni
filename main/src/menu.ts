@@ -63,7 +63,7 @@ export const buildMenu = (mainWindow, loadInit, i18n) => {
     const isWindows = os.platform() === "win32"
 
     const preferences = {
-        label: i18n.t('Preferences'),
+        label: i18n.t("testKeyLoads"),
         submenu: [
             {
                 label: "Edit Oni config",

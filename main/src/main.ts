@@ -311,14 +311,13 @@ app.on("activate", () => {
 
 i18n.on("loaded", loaded => {
     i18n.changeLanguage("en")
-    console.log("WOWkfdsjlkdsjfkdsj f1")
     i18n.off("loaded", () => {
         return
     })
 })
 
 i18n.on("languageChanged", () => {
-    windows.forEach(window_ => updateMenu(window_, false))
+    windows.forEach(window => updateMenu(window, false))
 })
 
 function updateMenu(browserWindow, loadInit) {
